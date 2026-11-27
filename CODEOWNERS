@@ -1,0 +1,11 @@
+* @NombaOSS/maintainers
+
+.github/ @NombaOSS/maintainers
+CODEOWNERS @NombaOSS/maintainers
+.gitignore @NombaOSS/maintainers
+.gitattributes @NombaOSS/maintainers
+/scripts/operations/ @NombaOSS/maintainers
+
+/src/nomba/http.py @NombaOSS/maintainers
+/src/nomba/lib/ @NombaOSS/maintainers
+CONTRIBUTING.md @NombaOSS/maintainers

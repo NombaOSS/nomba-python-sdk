@@ -1,0 +1,22 @@
+name: PR title
+
+# PRs are squash-merged, so the title becomes the commit on main that
+# release.yml reads to work out the next version.
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: python3 scripts/operations/release_version.py check-title "$TITLE"
+        env:
+          TITLE: ${{ github.event.pull_request.title }}

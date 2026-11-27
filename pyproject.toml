@@ -1,0 +1,49 @@
+[project]
+name = "nomba"
+version = "0.0.0"
+description = "Nomba Python SDK"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["httpx"]
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["nomba", "payments", "nigeria", "fintech", "api", "sdk"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/NombaOSS/nomba-python-sdk"
+Documentation = "https://developer.nomba.com"
+Source = "https://github.com/NombaOSS/nomba-python-sdk"
+Issues = "https://github.com/NombaOSS/nomba-python-sdk/issues"
+Changelog = "https://github.com/NombaOSS/nomba-python-sdk/releases"
+
+[dependency-groups]
+dev = [
+    "mypy",
+    "pytest",
+    "ruff",
+]
+
+[build-system]
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
+
+[tool.mypy]
+strict = true
+files = ["src", "tests"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+disallow_untyped_calls = false
+disallow_any_generics = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
